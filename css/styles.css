@@ -9,13 +9,10 @@
 }
 
 /* Elements */
-html{
-  background-color: #000000;
-}
+
 body{
   margin: 0;
   font-family: 'Roboto', sans-serif; 
-  background-color: #000000;
 }
 a{
     color: rgb(250, 215, 2);
@@ -62,7 +59,6 @@ svg{
   scroll-snap-type: y mandatory; /* Enforce snapping on the y-axis */
   height: 100vh; /* Ensure the container takes up the full viewport height */
   scroll-behavior: smooth;
-  background-color: #000000;
 }
 .section {
   height: 100vh; /* Each section takes up the full viewport height */
