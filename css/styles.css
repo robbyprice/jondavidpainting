@@ -1,12 +1,19 @@
 /* Fonts */
-.roboto {
+
+
+/* <weight>: Use a value from 100 to 900
+// <width>: Use a value from 75 to 100
+// <uniquifier>: Use a unique and descriptive class name */
+
+.roboto-header {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 900;
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
 }
+
 /* Base Styling */
 /* === CSS Reset & Base Styles === */
 *,
@@ -30,7 +37,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+header{
+  padding-top: env(safe-area-inset-top);
+  /* for fixed header try this */
+  /* top: env(safe-area-inset-top); */
+}
 /* === Universal Element Styling === */
 img,
 svg {
@@ -67,4 +78,102 @@ h1, h2, h3, h4, h5, h6 {
 :focus {
   outline: 2px solid #007acc;
   outline-offset: 2px;
+}
+/* Toggle button */
+#menu-toggle {
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#menu-toggle span {
+  height: 4px;
+  background: black;
+  transition: 0.3s;
+}
+/* Hamburger icon */
+.hamburger {
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.hamburger span {
+  height: 4px;
+  background: black;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+/* Animate to X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.hamburger.open span:nth-child(2) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* Nav menu */
+#menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu.open {
+  max-height: 300px;
+}
+
+/* Responsive layout */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  #menu {
+    max-height: none;
+    display: flex;
+    gap: 1rem;
+  }
+
+  #menu li {
+    display: inline-block;
+  }
+}
+
+
+
+/* Animate to X */
+#menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+#menu-toggle.open span:nth-child(2) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* Menu */
+#menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#menu.open {
+  max-height: 200px;
 }

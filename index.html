@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
     <!-- <script src="script.js" defer></script>   for later use -->
     <script type="application/ld+json">
       {
@@ -161,11 +161,12 @@
           </svg>
         </a>
         <!-- Hamburger Menu -->
-          <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-            
-          </button>
+        <button id="menu-toggle" class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
         <!-- Nav Menu -->
-        <ul>
+        <ul id="menu">
           <li><a href="https://www.jondavidpainting.com/portfolio" class="nav-link">Portfolio</a></li>
           <li><a href="https://www.jondavidpainting.com/services" class="nav-link">Services</a></li>
           <li><a href="https://www.jondavidpainting.com/contact" class="nav-link">Contact</a></li>
@@ -179,5 +180,23 @@
     <footer>
 
     </footer>
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.classList.toggle('open');
+      menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      });
+    });
+  </script>
   </body>
 </html>
