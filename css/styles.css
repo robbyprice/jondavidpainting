@@ -13,6 +13,8 @@ html {
   font-size: 16px;
 }
 body {
+  padding-top: constant(safe-area-inset-top); /* legacy iOS Safari */
+  padding-top: env(safe-area-inset-top, 20px); /* modern fallback */
   margin: 0;
   height: 400vh;
   font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -21,9 +23,6 @@ body {
   background-color: rgb(255, 255, 255);
 }
 header  {
-  padding-top: env(safe-area-inset-top);
-  /* for fixed header try this */
-  /* top: env(safe-area-inset-top); */
   width: 100%;
   height: 56px;
   display: flex;
