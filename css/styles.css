@@ -4,8 +4,9 @@
 /* <weight>: Use a value from 100 to 900
 // <width>: Use a value from 75 to 100
 // <uniquifier>: Use a unique and descriptive class name */
-*{
+* {
   box-sizing: border-box;
+  list-style: none;
 }
 html {
   scroll-behavior: smooth;
@@ -13,12 +14,13 @@ html {
 }
 body {
   margin: 0;
-  height: 500vh;
+  height: 400vh;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(255, 255, 255);
 }
-header{
+header  {
   padding-top: env(safe-area-inset-top);
   /* for fixed header try this */
   /* top: env(safe-area-inset-top); */
@@ -27,63 +29,90 @@ header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 16px;
-}
-.logo svg{
-  height: 48px;
-  width: auto;
-  margin-top: -2px;
-}
-.nav-link{
-  display: none;
-  font-size: 1.2rem;
-}
-/* === Universal Element Styling === */
-img,
-svg {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  padding: 0px 8px;
 }
 a {
   text-decoration: none;
-  color: inherit;
+  color:rgb(250, 215, 2);
 }
-
-button {
-  font: inherit;
+.logo svg {
+  height: 48px;
+  width: auto;
+}
+.hamburger-button  {
+  height: 40px;
+  width: 48px;
+  border: none;
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.hamburger-svg  {
   height: 36px;
-  width: 58px;
-  cursor: pointer;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+  width: 40px;
+}
+/* Line styling */
+.line {
+  stroke: rgb(250, 215, 2);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transform-origin: center;
+  transition: transform 0.3s ease;
 }
 
+/* Initial positions */
+.line.top {
+  transform: translateY(-8px);
+}
+
+.line.bottom {
+  transform: translateY(8px);
+}
+
+/* Only transition when active */
+.hamburger-button.active .line {
+  transition: transform 0.3s ease;
+}
+
+/* Active state: transform into an "X" */
+.hamburger-button.active .line.top {
+  transform: rotate(45deg);
+}
+
+.hamburger-button.active .line.bottom {
+  transform: rotate(-45deg);
+}
+
+.nav-bar  {
+  display: none;
+}
+/* Nav Bar Mobile Display */
+#main-navigation {
+  position: fixed;
+  top: -100vh; /* Hidden above screen */
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(5, 5, 5, 0.9); /* Customize as needed */
+  transition: top 0.3s ease-in-out;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-navigation.active {
+  top: 0; /* Slide down into view */
+}
+.nav-link{
+  line-height: 5rem;
+  font-size: 2rem;
+}
 /* Desktop Changes */
 @media (min-width: 992px){
-  #menu-toggle{
+  .hamburger-button {
     display: none;
-  }
-  nav{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .nav-link{
-    display: block;
-  }
-  .nav-list{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 50vw;
   }
 }
