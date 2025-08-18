@@ -38,6 +38,9 @@ a {
   height: 48px;
   width: auto;
 }
+.logo{
+  z-index: 1000;
+}
 .hamburger-button  {
   height: 40px;
   width: 48px;
@@ -94,7 +97,7 @@ a {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(5, 5, 5); /* Customize as needed */
+  background-color: rgb(255, 255, 255, 0.7); /* Customize as needed */
   transition: top 0.5s ease-in-out;
   z-index: 999;
   display: flex;
@@ -105,9 +108,27 @@ a {
 #main-navigation.active {
   top: 0; /* Slide down into view */
 }
+/* Animate nav links when menu opens */
+#main-navigation.nav-open .nav-link {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: none;
+}
+
+/* Optional: stagger each link for a smoother effect */
+#main-navigation.nav-open .nav-link:nth-child(1) { transition-delay: 0.34s; }
+#main-navigation.nav-open .nav-link:nth-child(2) { transition-delay: 0.36s; }
+#main-navigation.nav-open .nav-link:nth-child(3) { transition-delay: 0.38s; }
+#main-navigation.nav-open .nav-link:nth-child(4) { transition-delay: 0.40s; }
+/* Add more if needed */
+
 .nav-link{
   line-height: 5rem;
   font-size: 2rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 @media (max-width: 991px) {
   html.no-scroll,
