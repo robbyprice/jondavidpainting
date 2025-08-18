@@ -12,5 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update ARIA attributes
     this.setAttribute("aria-expanded", isActive);
     navBar.setAttribute("aria-hidden", !isActive);
+
+    document.documentElement.classList.toggle("no-scroll", isActive);
+    document.body.classList.toggle("no-scroll", isActive);
+
   });
 });
