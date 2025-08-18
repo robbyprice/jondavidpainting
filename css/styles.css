@@ -94,7 +94,7 @@ a {
 /* Nav Bar Mobile Display */
 #main-navigation {
   position: fixed;
-  top: -100vh; /* Hidden above screen */
+  top: -200vh; /* Hidden above screen */
   left: 0;
   width: 100vw;
   height: 100vh;
