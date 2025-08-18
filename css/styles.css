@@ -1,6 +1,4 @@
 /* Fonts */
-
-
 /* <weight>: Use a value from 100 to 900
 // <width>: Use a value from 75 to 100
 // <uniquifier>: Use a unique and descriptive class name */
@@ -64,30 +62,24 @@ a {
   transform-origin: center;
   transition: transform 0.3s ease;
 }
-
 /* Initial positions */
 .line.top {
   transform: translateY(-8px);
 }
-
 .line.bottom {
   transform: translateY(8px);
 }
-
 /* Only transition when active */
 .hamburger-button.active .line {
   transition: transform 0.3s ease;
 }
-
 /* Active state: transform into an "X" */
 .hamburger-button.active .line.top {
   transform: rotate(45deg);
 }
-
 .hamburger-button.active .line.bottom {
   transform: rotate(-45deg);
 }
-
 .nav-bar  {
   display: none;
 }
@@ -108,7 +100,6 @@ a {
   justify-content: center;
   align-items: center;
 }
-
 #main-navigation.active {
   top: 0; /* Slide down into view */
 }
@@ -117,14 +108,12 @@ a {
   opacity: 1;
   transform: translateY(0);
 }
-
 /* Optional: stagger each link for a smoother effect */
 #main-navigation.nav-open .nav-link:nth-child(1) { transition-delay: 0.34s; }
 #main-navigation.nav-open .nav-link:nth-child(2) { transition-delay: 0.36s; }
 #main-navigation.nav-open .nav-link:nth-child(3) { transition-delay: 0.38s; }
 #main-navigation.nav-open .nav-link:nth-child(4) { transition-delay: 0.40s; }
 /* Add more if needed */
-
 .nav-link{
   line-height: 5rem;
   font-size: 2rem;
@@ -134,6 +123,11 @@ a {
 }
 .nav-link a:hover{
   color:rgb(250, 215, 2)
+}
+@media screen and (orientation: landscape) {
+  header {
+    padding-top: env(safe-area-inset-top, 20px);
+  }
 }
 /* Desktop Changes */
 @media (min-width: 992px) {
@@ -153,14 +147,12 @@ a {
     justify-content: flex-end;
     padding-right: 1rem;
   }
-
   .nav-menu {
     width: 50vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
-
   .nav-link {
     opacity: 1;
     transform: none;
@@ -169,7 +161,6 @@ a {
     line-height: normal;
     transition: none;
   }
-
   .nav-link a {
     color: rgb(250, 215, 2); /* Ensure visibility */
   }
