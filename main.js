@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
       navBar.classList.remove("nav-open");
       setTimeout(() => {
         navBar.classList.remove("active");
-      }, 400);
+      }, 420);
     }
   });
 
