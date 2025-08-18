@@ -1,35 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Select elements
   const hamburgerButton = document.querySelector(".hamburger-button");
   const navBar = document.querySelector("#main-navigation");
-  const logoSVG = document.querySelector(".logo svg");
-  const hamburgerSVG = document.querySelector(".hamburger-button svg");
 
+  // Scroll lock helpers
+  function lockScroll() {
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = scrollBarWidth + "px";
+  }
+
+  function unlockScroll() {
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+  }
+
+  // Toggle nav on hamburger click
   hamburgerButton.addEventListener("click", function () {
     const isOpening = !navBar.classList.contains("active");
 
-    // Toggle hamburger button state
     this.classList.toggle("active", isOpening);
-
-    // Update ARIA attributes
     this.setAttribute("aria-expanded", isOpening);
     navBar.setAttribute("aria-hidden", !isOpening);
 
-    // Lock scroll on mobile
-    document.documentElement.classList.toggle("no-scroll", isOpening);
-    document.body.classList.toggle("no-scroll", isOpening);
-
     if (isOpening) {
-      // Opening: show nav and animate in
-      navBar.classList.add("active");
-      navBar.classList.add("nav-open");
+      lockScroll();
+      navBar.classList.add("active", "nav-open");
     } else {
-      // Closing: animate out, then hide nav
+      unlockScroll();
       navBar.classList.remove("nav-open");
-
       setTimeout(() => {
         navBar.classList.remove("active");
-      }, 500); // Match fade-out + slide-up duration
+      }, 400);
     }
+  });
+
+  // Auto-close nav on resize to desktop
+  let resizeTimeout;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const isDesktop = window.innerWidth >= 992;
+      const isNavOpen = navBar.classList.contains("active");
+
+      if (isDesktop && isNavOpen) {
+        hamburgerButton.classList.remove("active");
+        hamburgerButton.setAttribute("aria-expanded", "false");
+        navBar.setAttribute("aria-hidden", "true");
+        navBar.classList.remove("nav-open", "active");
+        unlockScroll();
+      }
+    }, 200); // Debounce delay
   });
 });
