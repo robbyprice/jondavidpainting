@@ -1,17 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
   const hamburgerButton = document.querySelector(".hamburger-button");
   const navBar = document.querySelector("#main-navigation");
+  const header = document.querySelector(".site-header");
 
   // Scroll lock helpers
+  function getScrollBarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
+  }
+
   function lockScroll() {
-    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const scrollBarWidth = getScrollBarWidth();
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = scrollBarWidth + "px";
+
+    if (header) {
+      header.style.paddingRight = scrollBarWidth + "px";
+    }
   }
 
   function unlockScroll() {
     document.body.style.overflow = "";
     document.body.style.paddingRight = "";
+
+    if (header) {
+      header.style.paddingRight = "";
+    }
   }
 
   // Toggle nav on hamburger click
@@ -30,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       navBar.classList.remove("nav-open");
       setTimeout(() => {
         navBar.classList.remove("active");
-      }, 420);
+      }, 420); // Match your transition duration
     }
   });
 
