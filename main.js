@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       navBar.classList.remove("nav-open");
       setTimeout(() => {
         navBar.classList.remove("active");
-      }, 420); // Match your transition duration
+      }, 300); // Match your transition duration
     }
   });
 
