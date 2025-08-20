@@ -4,6 +4,12 @@
   src: url('/fonts/Aldrich.woff2') format('woff2');
   font-display: swap;
 }
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/Outfit-VariableFont_wght.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
 
 /* <weight>: Use a value from 100 to 900
 // <width>: Use a value from 75 to 100
@@ -31,7 +37,7 @@ body {
   padding-top: constant(safe-area-inset-top); /* legacy iOS Safari */
   padding-top: env(safe-area-inset-top, 20px); /* modern fallback */
   margin: 0;
-  font-family: 'Aldrich', sans-serif;
+  font-family: 'Aldrich', 'Trebuchet MS';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -48,14 +54,14 @@ header  {
   left: 0;
   right: 0;
   width: 100%;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 16px;
-  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0px 12px;
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
 }
 .logo svg {
@@ -126,6 +132,9 @@ header  {
   justify-content: center;
   align-items: center;
 }
+.disable-transitions * {
+  transition: none !important;
+}
 #main-navigation.active {
   top: 0; /* Slide down into view */
 }
@@ -166,10 +175,11 @@ main  {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  flex-direction: column;
+  height: 90%;
   width: 100%;
   background-image:  
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .5), rgba(0, 0, 0, 1)),
     url('/images/jondavid_hero.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -181,6 +191,7 @@ h1{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transform: translateY(-8px);
 }
 .name1{
   font-size: 3rem;
@@ -199,7 +210,16 @@ h1{
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.hero-card {
+  width: 80%;
+  max-height: 80%;
+  max-width: 360px;
+  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  line-height: 1.5rem;
+  color: rgb(255, 255, 255);
+}
 
 /* Footer CSS */
 
@@ -260,7 +280,7 @@ footer{
     align-items: center;
   }
   .nav-link a {
-    color: rgb(69, 69, 69); /* Ensure visibility */
+    color: rgb(255, 255, 255); /* Ensure visibility */
   }
 }
 

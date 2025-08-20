@@ -1,30 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   const hamburgerButton = document.querySelector(".hamburger-button");
   const navBar = document.querySelector("#main-navigation");
-  const header = document.querySelector(".site-header");
 
   // Scroll lock helpers
-  function getScrollBarWidth() {
-    return window.innerWidth - document.documentElement.clientWidth;
-  }
-
   function lockScroll() {
-    const scrollBarWidth = getScrollBarWidth();
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = scrollBarWidth + "px";
-
-    if (header) {
-      header.style.paddingRight = scrollBarWidth + "px";
-    }
   }
 
   function unlockScroll() {
     document.body.style.overflow = "";
     document.body.style.paddingRight = "";
-
-    if (header) {
-      header.style.paddingRight = "";
-    }
   }
 
   // Toggle nav on hamburger click
@@ -43,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
       navBar.classList.remove("nav-open");
       setTimeout(() => {
         navBar.classList.remove("active");
-      }, 300); // Match your transition duration
+      }, 420);
     }
   });
 
@@ -52,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
-      const isDesktop = window.innerWidth >= 992;
+      const isDesktop = window.matchMedia("(min-width: 992px)").matches;
       const isNavOpen = navBar.classList.contains("active");
 
       if (isDesktop && isNavOpen) {
@@ -63,5 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
         unlockScroll();
       }
     }, 200); // Debounce delay
+  });
+
+  // Prevent transition glitches on orientation change
+  window.addEventListener("orientationchange", function () {
+    document.body.classList.add("disable-transitions");
+
+    setTimeout(() => {
+      document.body.classList.remove("disable-transitions");
+    }, 500); // Allow layout to settle before re-enabling transitions
   });
 });
