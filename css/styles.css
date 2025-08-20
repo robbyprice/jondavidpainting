@@ -245,6 +245,9 @@ footer{
     padding-left: env(safe-area-inset-left, 20px);
     padding-right: env(safe-area-inset-right, 20px);
   }
+  .hero-container {
+    height: 100%;
+  }
 }
 /* Desktop Changes */
 @media (min-width: 992px) {
