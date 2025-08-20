@@ -168,8 +168,7 @@ header  {
 /* Main CSS */
 
 main  {
-  height: calc(100vh - 56px);
-  margin-top: 56px;
+  height: 100vh;
 }
 .hero-container{
   display: flex;
@@ -179,7 +178,7 @@ main  {
   height: 90%;
   width: 100%;
   background-image:  
-    linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .5), rgba(0, 0, 0, 1)),
+    linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .6), rgba(0, 0, 0, 1)),
     url('/images/jondavid_hero.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -191,7 +190,7 @@ h1{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: translateY(-8px);
+  transform: translateY(-12px);
 }
 .name1{
   font-size: 3rem;
