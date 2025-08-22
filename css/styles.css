@@ -165,8 +165,6 @@ header  {
 
 
 /* Main CSS */
-
-
 .hero-container{
   margin-top: 56px;
   position: relative;
@@ -255,7 +253,6 @@ h1  {
 }
 
 /* Footer CSS */
-
 footer  {
   min-height: 56px;
   width: 100%;
