@@ -323,7 +323,7 @@ footer  {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  transform: translateY(24vh);
+  transform: translateY(0vh);
   }
   .headline-text{
     margin-right: .5rem;
