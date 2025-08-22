@@ -172,7 +172,7 @@ header  {
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  height: 90vh;
+  height: 80vh;
   width: 100%;
   background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(0, 0, 0, .5), rgba(0, 0, 0, 1));
 }
