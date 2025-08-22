@@ -22,7 +22,6 @@
   list-style: none;
 }
 
-
 /* HTML DOCUMENT CSS */
 
 html {
@@ -32,7 +31,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 /* BODY CSS */
 
@@ -169,7 +167,6 @@ header  {
 
 main  {
   height: 100vh;
-
 }
 .hero-container{
   position: relative;
@@ -269,7 +266,7 @@ footer  {
   justify-content: center;
 }
 
-
+/* Desktop Screen */
 
 @media screen and (orientation: landscape) {
   header {
