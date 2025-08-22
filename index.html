@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="main.js" defer></script>
     <link rel="preload" href="/fonts/Aldrich.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="image" href="images/jon-david-painting-hero@1x.webp" imagesrcset="images/jon-david-painting-hero@1x.webp 1x, images/jon-david-painting-hero@2x.webp 2x" imagesizes="100vw">
+
     <!-- Backup Aldrich font if file doesn't work --
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,11 +182,26 @@
     </header>
     <main>
       <section class="hero-container">
-        <h1>
-          <span class="name1">Jon David</span>
-          <span class="name2">Decorative Painting</span>
+        <picture class="hero-background-picture">
+          <source
+            media="(max-width: 991px)"
+            type="image/webp"
+            srcset="images/jon-david-painting-hero@1x.webp 1x, images/jon-david-painting-hero@2x.webp 2x">
+          <source
+            media="(min-width: 992px)"
+            type="image/webp"
+            srcset="images/jon-david-painting-hero@2x.webp">
+          <img 
+            src="images/jon-david-painting-hero@1x.webp"
+            srcset="images/jon-david-painting-hero@1x.webp 1x, images/jon-david-painting-hero@2x.webp 2x"
+            fetchpriority="high"
+            alt="Hero image showcasing Jon David Painting metal beams to look like wood." />
+        </picture> 
+        <h1> 
+          <span class="headline-text">Jon David</span>
+          <span class="headline-subtext">Decorative Painting</span>
         </h1>
-        <div class="hero-card">
+        <div class="paragraph-text">
           <p>Jon David, an accomplished artisan painter, brings over 25 years of decorative painting expertise to Northern Arizona.  
             By making a simple phone call, you can transform your home or business.
           </p>
@@ -194,7 +211,7 @@
     </main>
     <footer>
       <section class="footer-container">
-        <span>Copyright &copy; 2025 Jon David Decorative Painting, Inc</span>
+        <span>Copyright &copy; 2025 Jon David Decorative Painting</span>
       </section>
     </footer>
  
