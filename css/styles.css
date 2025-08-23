@@ -165,8 +165,7 @@ header  {
 
 
 /* Main CSS */
-.hero-container{
-  padding-top: 56px;
+.hero-container {
   position: relative;
   display: flex;
   align-items: center;
