@@ -166,15 +166,16 @@ header  {
 
 /* Main CSS */
 .hero-container{
-  margin-top: 56px;
+  padding-top: 56px;
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
-  height: 80vh;
+  height: 100vh;
+  min-height: 560px;
   width: 100%;
-  background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(0, 0, 0, .5), rgba(0, 0, 0, 1));
+  background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(0, 0, 0, .4), rgba(0, 0, 0, 1));
 }
 .hero-background-picture  {
   position: absolute;
@@ -192,21 +193,11 @@ header  {
   object-fit: cover;
   object-position: center;
 }
-.hero-text-container  {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transform: translateY(5vh);
-}
 h1  {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0;
-}
-.headline-text  {
   font-size: 3.2rem;
   width: 100%;
   font-weight: 500;
@@ -216,7 +207,7 @@ h1  {
   -webkit-text-fill-color: transparent;
   text-align: center;
 }
-.headline-subtext  {
+.hero-text  {
   width: 100%;
   font-size: 2rem;
   font-weight: 300;
@@ -227,20 +218,23 @@ h1  {
   text-align: center;
 }
 .hero-description {
-  width: 80%;
+  max-width: 80%;
   font-size: 1.1rem;
   font-family: 'Outfit', sans-serif;
   font-weight: 300;
-  line-height: 1.8em;
+  line-height: 1.8rem;
   color: rgb(255, 255, 255);
   text-align: center;
+  text-wrap: balance;
 }
 .call-link  {
+  margin-top: 15vh;
   font-family: 'Aldrich', sans-serif;
   font-size: 1.2rem;
   width: 80%;
   max-width: 360px;
   height: 48px;
+  letter-spacing: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
