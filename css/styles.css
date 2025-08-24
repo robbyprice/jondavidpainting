@@ -338,7 +338,7 @@ h2  {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
-  margin: 56px 0 24px;
+  margin: 64px 0 24px;
 }
 .service-list-container {
   display: flex;
