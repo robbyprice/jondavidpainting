@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="main.js" defer></script>
     <link rel="preload" href="/fonts/Aldrich.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" as="image" href="images/jon-david-painting-hero@1x.webp" imagesrcset="images/jon-david-painting-hero@1x.webp 1x, images/jon-david-painting-hero@2x.webp 2x" imagesizes="100vw">
+    <link rel="preload" as="image" href="images/jon-david-painting-hero@2x.webp" imagesrcset="images/jon-david-painting-hero@2x.webp 2x, images/jon-david-painting-hero@1x.webp 1x" imagesizes="100vw">
 
     <!-- Backup Aldrich font if file doesn't work --
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -173,15 +173,15 @@
       </button>
      <nav class="nav-bar" id="main-navigation" aria-hidden="true" role="navigation">
         <ul class="nav-menu">
-          <li class="nav-link"><a href="https://www.jondavidpainting.com/portfolio">Portfolio</a></li>
           <li class="nav-link"><a href="https://www.jondavidpainting.com/services">Services</a></li>
+          <li class="nav-link"><a href="https://www.jondavidpainting.com/portfolio">Portfolio</a></li>
           <li class="nav-link"><a href="https://www.jondavidpainting.com/about">About</a></li>
           <li class="nav-link"><a href="https://www.jondavidpainting.com/contact">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <section class="hero-container">
+      <section id="welcome" class="hero-container">
         <picture class="hero-background-picture">
           <source
             media="(max-width: 991px)"
@@ -192,8 +192,8 @@
             type="image/webp"
             srcset="images/jon-david-painting-hero@2x.webp">
           <img 
-            src="images/jon-david-painting-hero@1x.webp"
-            srcset="images/jon-david-painting-hero@1x.webp 1x, images/jon-david-painting-hero@2x.webp 2x"
+            src="images/jon-david-painting-hero@2x.webp"
+            srcset="images/jon-david-painting-hero@2x.webp 2x, images/jon-david-painting-hero@1x.webp 1x"
             fetchpriority="high"
             alt="Hero image showcasing Jon David Painting metal beams to look like wood." />
         </picture>
@@ -205,9 +205,65 @@
         </p>
         <a href="tel:+19287134610" class="call-link">Call</a>
       </section>
+      <section id="services" class="services-container">
+        <div class="carousel">
+          <div class="carousel-card">
+            <img loading="lazy" src="images/faux-finish.webp" alt="Faux finished column and beam by Jon David">
+            <h3>Faux Finishing</h3>
+          </div>
+          <div class="carousel-card">
+            <img loading="lazy" src="images/furniture-restoration.webp" alt="Carved wooden door funiture restoration by Jon David">
+            <h3>Furniture Restoration</h3>
+          </div>
+          <div class="carousel-card">
+            <img loading="lazy" src="images/venetian-plaster.webp" alt="Venetian plaster tile by Jon David">
+            <h3>Venetian Plaster</h3>
+          </div>
+          <div class="carousel-card">
+            <img loading="lazy" src="images/custom-signage.webp" alt="Local business custom sign done by Jon David">
+            <h3>Custom Signage</h3>
+          </div>
+          <div class="carousel-card">
+            <img loading="lazy" src="images/accent-wall.webp" alt="Accent bedroom wall by Jon David">
+            <h3>Accent Walls</h3>
+          </div>
+          <div class="carousel-card">
+            <img loading="lazy" src="images/wall-mural.webp" alt="Local business mural done by Jon David">
+            <h3>Murals</h3>
+          </div>
+        </div>
+          <!-- ✅ Add clickable indicators below carousel -->
+        <div class="carousel-indicators">
+          <button data-index="0" role="button" aria-label="Go to Faux Finishing"></button>
+          <button data-index="1" role="button" aria-label="Go to Furniture Restoration"></button>
+          <button data-index="2" role="button" aria-label="Go to Venetian Plaster"></button>
+          <button data-index="3" role="button" aria-label="Go to Custom Signage"></button>
+          <button data-index="4" role="button" aria-label="Go to Accent Walls"></button>
+          <button data-index="5" role="button" aria-label="Go to Murals"></button>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <div class="service-list-container">
+            <ul class="services-list">
+              <li>Murals</li>
+              <li>Accent Walls</li>
+              <li>Faux Finishes</li>
+              <li>Color Matching</li>
+              <li>Custom Signage</li>
+            </ul>
+            <ul class="services-list">
+              <li>Staining</li>
+              <li>Venetian Plaster</li>
+              <li>Interior Painting</li>
+              <li>Exterior Painting</li>
+              <li>Furniture Restoration</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
-        <span>Copyright &copy; 2025 Jon David Decorative Painting</span>
+        <span>Jon David Decorative Painting &copy; 2025</span>
     </footer>
  
   </body>
