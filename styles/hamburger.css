@@ -1,0 +1,23 @@
+.hamburger{
+    height: 48px;
+    width: 48px;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+}
+.line {
+    display: block;
+    height: 3px;
+    width: 30px;
+    background-color:rgb(250, 215, 2);
+    border-radius: 10px;
+}
+.top{
+    margin-top: 4px;
+}
+.bottom {
+    margin-top: 4px;
+} 
