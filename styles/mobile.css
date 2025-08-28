@@ -1,0 +1,278 @@
+html, body {
+  touch-action: manipulation;
+  overscroll-behavior: contain;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* HTML DOCUMENT CSS */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body    {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body.menu-open  {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform  0.4s ease-in-out;
+    transform: translateY(0);
+    will-change: transform;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow:
+        0 1px 3px rgba(255, 255, 255, 0.04),
+        0 4px 12px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.header.hide {
+    transform: translateY(-100%);
+    box-shadow: none;
+}
+
+.logo, .menu   {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.logo   {
+    margin-left: 20px;
+    width: 64px;
+    height: 48px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    margin-right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.menu span,
+.menu span::before,
+.menu span::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 12px;
+    background-color: rgb(250, 215, 2);
+    left: 0;
+    will-change: transform, top;
+}
+
+.menu span {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: transparent;
+}
+
+/* Default (hamburger buns) */
+.menu span::before {
+    top: -4px;
+    transform: rotate(0deg);
+    transition:
+        transform 200ms ease-in-out,
+        top 200ms ease-in-out 200ms; /* Delay squish on close */
+}
+
+.menu span::after {
+    top: 4px;
+    transform: rotate(0deg);
+    transition:
+        transform 200ms ease-in-out,
+        top 200ms ease-in-out 200ms;
+}
+
+/* Open (X) — squish THEN rotate */
+.menu.open span::before {
+    top: 0;
+    transform: rotate(45deg);
+    transition:
+        top 200ms ease-in-out,
+        transform 200ms ease-in-out 200ms; /* Delay rotate on open */
+}
+
+.menu.open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+    transition:
+        top 200ms ease-in-out,
+        transform 200ms ease-in-out 200ms;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 56px 0 0 20px;
+    width: 100%;
+    height:100vh;
+    background: rgba( 0, 0, 0, 1); /* Solid or semi-transparent */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
+    z-index: 999;
+}
+
+/* When menu is open */
+.navbar.menu-active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-links a{
+    font-size: 2rem;
+    font-family: 'Roboto';
+    list-style-type: none;
+    line-height: 5rem;
+    cursor: pointer;
+    transition: color 300ms ease-in-out;
+}
+.nav-links a:hover  {
+    color: #ffe08c;
+}
+
+.desktop-icons  {
+    display: none;
+}
+
+/* Main CSS */
+.hero-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 560px;
+  width: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(0, 0, 0, .5), rgba(0, 0, 0, 1));
+}
+
+.hero-background-picture  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.hero-background-picture img  {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+h1  {
+  font-family: 'Aldrich', 'Trebuchet MS', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.2rem;
+  width: 100%;
+  font-weight: 500;
+  background: linear-gradient(90deg, #e2c12a, #e7c75e, #fff8dc, #e7c75e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.hero-text  {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 300;
+  background: linear-gradient(90deg, #d4af37, #e7c75e, #fff8dc, #e7c75e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.hero-description {
+  width: 80%;
+  max-width: 640px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.call-link  {
+  margin-top: 14vh;
+  font-size: 1.2rem;
+  width: 80%;
+  max-width: 360px;
+  height: 48px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.0));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Footer CSS */
+footer  {
+  min-height: 56px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: .9rem;
+  color:rgb(69, 69, 69,);
+  background-color: #f5f5f7;
+}

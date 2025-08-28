@@ -1,0 +1,56 @@
+@media screen and (min-width: 992px) {
+    .logo{
+        margin-left: 32px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .navbar {
+        position: relative;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 56px;
+        width: 100vw;
+        transition: none;
+        background-color: transparent;
+    }
+
+    .nav-links  {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        list-style-type: none;
+        gap: 2vw;
+    }
+
+    .nav-links a    {
+        line-height: normal;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    .desktop-icons  {
+        margin-right: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 64px;
+        height: 48px;
+    }
+    .icon-link{
+        height: 24px;
+        width: 24px;
+    }
+    .icon-link img  {
+        height: 100%;
+        width: 100%;
+    }
+}
