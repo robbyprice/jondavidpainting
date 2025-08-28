@@ -45,12 +45,19 @@
         width: 64px;
         height: 48px;
     }
+
     .icon-link{
         height: 24px;
         width: 24px;
     }
+
     .icon-link img  {
         height: 100%;
         width: 100%;
+    }
+    .hero-description {
+        line-height: 2rem;
+        text-align: center;
+        text-wrap: balance;
     }
 }

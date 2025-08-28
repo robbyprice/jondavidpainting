@@ -4,9 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   const body = document.body;
   let menuOpenedByUser = false;
+
+  // Scroll tracking variables
   let lastScrollY = window.scrollY;
-  let touchStartY = 0;
+  let scrollDelta = 0;
+  const threshold = 40; // Minimum scroll distance before header reacts
   let lastDirection = 'up';
+  let touchStartY = 0;
 
   // Menu toggle
   const openMenu = () => {
@@ -15,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.add('menu-open');
     menuButton.setAttribute('aria-expanded', 'true');
     menuOpenedByUser = true;
-    header.classList.remove('hide'); // Keep header visible
+    header.classList.remove('hide'); // Keep header visible when menu is open
   };
 
   const closeMenu = () => {
@@ -34,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && menuOpenedByUser) closeMenu();
   });
 
-  // Scroll direction logic
+  // Header show/hide logic based on scroll direction
   const updateHeader = (direction) => {
     if (menuOpenedByUser) return;
 
@@ -47,18 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Scroll listener with threshold sensitivity
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
     const direction = currentScrollY > lastScrollY ? 'down' : 'up';
-    updateHeader(direction);
+    scrollDelta += Math.abs(currentScrollY - lastScrollY);
+
+    if (scrollDelta > threshold) {
+      updateHeader(direction);
+      scrollDelta = 0; // Reset after triggering
+    }
+
     lastScrollY = currentScrollY;
   });
 
-  window.addEventListener('wheel', (e) => {
-    const direction = e.deltaY > 0 ? 'down' : 'up';
-    updateHeader(direction);
-  });
-
+  // Touch support (optional, for mobile)
   window.addEventListener('touchstart', (e) => {
     touchStartY = e.touches[0].clientY;
   });
@@ -66,7 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchmove', (e) => {
     const touchEndY = e.touches[0].clientY;
     const direction = touchEndY < touchStartY ? 'down' : 'up';
-    updateHeader(direction);
+    scrollDelta += Math.abs(touchEndY - touchStartY);
+
+    if (scrollDelta > threshold) {
+      updateHeader(direction);
+      scrollDelta = 0;
+    }
+
     touchStartY = touchEndY;
   });
 });
