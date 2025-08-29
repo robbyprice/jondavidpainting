@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Scroll tracking variables
   let lastScrollY = window.scrollY;
   let scrollDelta = 0;
-  const threshold = 40; // Minimum scroll distance before header reacts
+  const threshold = 96; // Minimum scroll distance before header reacts
   let lastDirection = 'up';
   let touchStartY = 0;
 
