@@ -6,7 +6,6 @@ html, body {
     position: fixed;
     margin-left: 64px;
     top: 64px;
-    width: 100%;
     background:transparent;
     z-index: 1;
 }
