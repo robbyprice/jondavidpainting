@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   const body = document.body;
   let menuOpenedByUser = false;
+  let scrollPosition = 0; // Store scroll position
 
   // Scroll tracking variables
   let lastScrollY = window.scrollY;
@@ -14,9 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Menu toggle
   const openMenu = () => {
+    scrollPosition = window.scrollY; // Save current scroll position
     menuButton.classList.add('open');
     navbar.classList.add('menu-active');
     body.classList.add('menu-open');
+    body.style.top = `-${scrollPosition}px`; // Offset body to maintain visual position
     menuButton.setAttribute('aria-expanded', 'true');
     menuOpenedByUser = true;
     header.classList.remove('hide'); // Keep header visible when menu is open
@@ -26,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     menuButton.classList.remove('open');
     navbar.classList.remove('menu-active');
     body.classList.remove('menu-open');
+    body.style.top = ''; // Reset top style
+    window.scrollTo(0, scrollPosition); // Restore scroll position
     menuButton.setAttribute('aria-expanded', 'false');
     menuOpenedByUser = false;
   };
@@ -53,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll listener with threshold sensitivity
   window.addEventListener('scroll', () => {
+    if (body.classList.contains('menu-open')) return; // Skip scroll updates when menu is open
     const currentScrollY = window.scrollY;
     const direction = currentScrollY > lastScrollY ? 'down' : 'up';
     scrollDelta += Math.abs(currentScrollY - lastScrollY);
@@ -67,10 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Touch support (optional, for mobile)
   window.addEventListener('touchstart', (e) => {
+    if (body.classList.contains('menu-open')) return; // Skip touch updates when menu is open
     touchStartY = e.touches[0].clientY;
   });
 
   window.addEventListener('touchmove', (e) => {
+    if (body.classList.contains('menu-open')) return; // Skip touch updates when menu is open
     const touchEndY = e.touches[0].clientY;
     const direction = touchEndY < touchStartY ? 'down' : 'up';
     scrollDelta += Math.abs(touchEndY - touchStartY);

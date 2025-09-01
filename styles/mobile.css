@@ -31,8 +31,12 @@ body    {
 }
 
 body.menu-open  {
-    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 .header {
@@ -168,10 +172,10 @@ body.menu-open  {
 }
 
 .nav-links a{
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-family: 'Roboto';
     list-style-type: none;
-    line-height: 5rem;
+    line-height: 4rem;
     cursor: pointer;
     transition: color 300ms ease-in-out;
 }
