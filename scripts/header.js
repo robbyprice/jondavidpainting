@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   const body = document.body;
   let menuOpenedByUser = false;
-  let scrollPosition = 0; // Store scroll position
 
   // Scroll tracking variables
   let lastScrollY = window.scrollY;
@@ -13,13 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastDirection = 'up';
   let touchStartY = 0;
 
+  // Prevent scroll when menu is open
+  const preventScroll = (e) => {
+    if (body.classList.contains('menu-open')) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
   // Menu toggle
   const openMenu = () => {
-    scrollPosition = window.scrollY; // Save current scroll position
     menuButton.classList.add('open');
     navbar.classList.add('menu-active');
     body.classList.add('menu-open');
-    body.style.top = `-${scrollPosition}px`; // Offset body to maintain visual position
+    // Add event listeners to prevent scrolling
+    window.addEventListener('wheel', preventScroll, { passive: false });
+    window.addEventListener('touchmove', preventScroll, { passive: false });
     menuButton.setAttribute('aria-expanded', 'true');
     menuOpenedByUser = true;
     header.classList.remove('hide'); // Keep header visible when menu is open
@@ -29,8 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
     menuButton.classList.remove('open');
     navbar.classList.remove('menu-active');
     body.classList.remove('menu-open');
-    body.style.top = ''; // Reset top style
-    window.scrollTo(0, scrollPosition); // Restore scroll position
+    // Remove scroll prevention listeners
+    window.removeEventListener('wheel', preventScroll);
+    window.removeEventListener('touchmove', preventScroll);
     menuButton.setAttribute('aria-expanded', 'false');
     menuOpenedByUser = false;
   };
